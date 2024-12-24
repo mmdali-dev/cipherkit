@@ -11,7 +11,11 @@ import (
 )
 
 // Encrypt encrypts plaintext using the given key
-func Encrypt(key []byte, plaintext []byte) (string, error) {
+func Encrypt(skey string, plaintext []byte) (string, error) {
+	key, err := StringToKey(skey)
+	if err != nil {
+		return "", err
+	}
 	block, err := aes.NewCipher(key[:])
 	if err != nil {
 		return "", err
@@ -30,7 +34,11 @@ func Encrypt(key []byte, plaintext []byte) (string, error) {
 }
 
 // Decrypt decrypts ciphertext using the given key
-func Decrypt(key []byte, encodedtext string) ([]byte, error) {
+func Decrypt(skey, encodedtext string) ([]byte, error) {
+	key, err := StringToKey(skey)
+	if err != nil {
+		return nil, err
+	}
 	data, err := base64.Decode(encodedtext)
 	if err != nil {
 		return nil, err
