@@ -5,7 +5,7 @@ import (
 )
 
 // تابع انکود
-func TextToHex(input string) string {
-	encoded := Hex.EncodeToString([]byte(input))
+func TextToHex(input []byte) string {
+	encoded := Hex.EncodeToString(input)
 	return encoded
 }

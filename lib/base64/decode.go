@@ -4,10 +4,10 @@ import (
 	Base64 "encoding/base64"
 )
 
-func Base64ToText(input string) (string, error) {
+func Base64ToText(input string) ([]byte, error) {
 	decodedBytes, err := Base64.StdEncoding.DecodeString(input)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
-	return string(decodedBytes), nil
+	return decodedBytes, nil
 }
