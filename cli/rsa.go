@@ -19,7 +19,11 @@ func RsaHandler(gen, dec bool, text, key, file, output string) {
 		fmt.Println("keys created at : private.pem , public.pem!")
 	} else {
 		if key == "" {
-			panic("error , please enter the --key path.")
+			if dec {
+				key = "private.pem"
+			} else {
+				key = "public.pem"
+			}
 		}
 		if text != "" {
 			if !dec {
@@ -41,7 +45,7 @@ func RsaHandler(gen, dec bool, text, key, file, output string) {
 				if err != nil {
 					panic("error Decrypt data: " + err.Error())
 				}
-				fmt.Println(result)
+				fmt.Println(string(result))
 			}
 		} else {
 			if file == "" {
