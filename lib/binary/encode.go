@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func TextToBinary(text string) string {
+func Encode(text string) string {
 	var binary strings.Builder
 	for _, char := range text {
 		binary.WriteString(fmt.Sprintf("%08b ", char))

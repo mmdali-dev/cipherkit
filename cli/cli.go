@@ -13,7 +13,8 @@ func Cli() {
 	file := flag.String("file", "", "--file=filepath ")
 	output := flag.String("output", "", "--output=filepath")
 	dec := flag.Bool("dec", false, "use for decrypt in algorythms.")
-
+	gen := flag.Bool("gen", false, "generate key.")
+	key := flag.String("key", "", "key path to find")
 	flag.Parse()
 	switch *mod {
 	case "sha256":
@@ -22,6 +23,12 @@ func Cli() {
 		Md5Handler(*text, *file, *output)
 	case "base64":
 		Base64Handler(*text, *file, *output, *dec)
+	case "hex":
+		HexHandler(*text, *file, *output, *dec)
+	case "binary":
+		BinaryHandler(*text, *dec)
+	case "rsa":
+		RsaHandler(*gen, *dec, *text, *key, *file, *output)
 	default:
 		fmt.Println("use --help to see how uuse the cipherkit")
 	}

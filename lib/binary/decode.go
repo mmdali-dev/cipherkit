@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func BinaryToText(binary string) (string, error) {
+func Decode(binary string) (string, error) {
 	var text strings.Builder
 	binaryValues := strings.Fields(binary)
 
