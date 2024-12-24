@@ -4,7 +4,7 @@ import (
 	Base64 "encoding/base64"
 )
 
-func Base64ToText(input string) ([]byte, error) {
+func Decode(input string) ([]byte, error) {
 	decodedBytes, err := Base64.StdEncoding.DecodeString(input)
 	if err != nil {
 		return nil, err
