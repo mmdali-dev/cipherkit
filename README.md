@@ -10,7 +10,7 @@ Welcome to **CipherKit**! This powerful library is designed to enhance your Go a
 
 ## Installation 📦
 
-To get started with **My Go Library**, you need to install it using Go's package manager. Run the following command in your terminal:
+To get started with **CipherKit**, you need to install it using Go's package manager. Run the following command in your terminal:
 ```bash
 go get github.com/mmdali-dev/cipherkit 
 
